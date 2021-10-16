@@ -112,3 +112,6 @@ To create a new item:
 
 To update the Item name (see models.py for extra code within the class to override django.db settings)
 
+
+### Lesson 6 - Rendering Data
+
