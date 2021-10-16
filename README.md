@@ -81,3 +81,34 @@ To create a super user:
 
 1. Run the local server again and put /admin at the end of the URL (/admin as this is stipulated in the urls.py)
 2. Log in with credentials you just created
+
+### Lesson 5 - Models
+
+1. Add a class to models.py (see models.py for code)
+
+When Django sees that we've created a new item class it will automatically create an items table when we make and run the database migrations.
+
+Carry out migrations:
+1. python3 manage.py makemigrations --dry-run
+2. python3 manage.py makemigrations
+3. python3 manage.py migrate --plan
+4. python3 manage.py migrate
+
+Register our new model in the admin.py file:
+
+1. First, Import class from models.py
+> from .models import Item
+
+2. Then, register the model:
+> admin.site.register(Item)
+
+3. Run the project on the local server, go to the /admin page and the 'Items' table should be there<br>
+<img src="readmeassets/django1.png">
+
+To create a new item:
+1. Click on 'Items' on the admin page
+2. Click 'add item'
+3. Fill out the form
+
+To update the Item name (see models.py for extra code within the class to override django.db settings)
+
