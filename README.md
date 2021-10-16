@@ -16,8 +16,28 @@ To get back to previous directory:
 
 To start a project:
 > django-admin startproject {project_name} .
-Period at the end to signify we want project in current directory
+
+Period at the end to signify we want project in current directory<br>
 May need to reorder files/folders
 
 To run locally:
 > python3 manage.py runserver
+
+
+### Lesson 2 - URLs
+
+Creating an app:
+> python3 manage.py startapp {app_name}
+
+In views.py add in a test function:
+> def say_hello(request):<br>
+>    return HttpResponse("Hello!")
+
+In urls.py:
+1.  import the test function with other imports:
+    > from to_do.views import say_hello
+
+2. add a new path function in url patterns:
+    > path('hello/', say_hello, name='hello')
+
+3. To test it's working, navigate to the locally hosted server, and add /hello to the end of the url
