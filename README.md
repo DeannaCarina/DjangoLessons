@@ -67,3 +67,17 @@ In settings.py:
 1. In the INSTALLED_APPS section, add the new app 'to_do' under the other pre-installed apps
 
 Test the locally hosted server to see if template has rendered.
+
+
+### Lesson 4 - Migrations and Admin
+
+THREE KEY COMMANDS (text in [] is optional):
+1. python3 manage.py makemigrations [--dry-run]
+2. python3 manage.py showmigrations
+3. python3 manage.py migrate [--plan]
+
+To create a super user:
+> python3 manage.py createsuperuser
+
+1. Run the local server again and put /admin at the end of the URL (/admin as this is stipulated in the urls.py)
+2. Log in with credentials you just created
