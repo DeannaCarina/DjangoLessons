@@ -115,3 +115,38 @@ To update the Item name (see models.py for extra code within the class to overri
 
 ### Lesson 6 - Rendering Data
 
+The next thing we need is the way to display the to our users.
+So we need to find a way to get those items from the database into a template.
+Remember that in the Model View template design pattern
+The views represent the programming logic that allows users to interact with
+the database through the templates that they see.
+
+In views.py:
+To access the Item model in this file: 
+> from .models import Item
+
+Will allow us to use the Item model in our views
+
+To get all items in the database, add this code to the function def:
+> items = Item.objects.all()
+
+Add a a variable called context within the function def, which is just going to be a
+dictionary with all of our items in it (see views.py for code).
+It needs a key of items. And that value is going to be our items variable that we just created.
+Add that 'context' variable as a third argument to the render function.
+This will ensure that we have access to it in our todo list .html template.
+
+#### <strong>Once we save this we've got everything we need to ensure complete communication.</strong>
+#### <strong>Between the users of our app on the front end. And our database on the back end.</strong>
+
+To test:
+1. > python3 manage.py runserver
+
+2. Open the template file (in this case to_do/templates/to_do_list.html)
+
+3. Add the code {{ items }} to body of page
+
+should return something like this: "<QuerySet [<Item: Create Item class>, <Item: Register Item model>]>"
+
+4. To make more user friendly, add the for loop syntax to iterate through the items list (see html for code)
+
