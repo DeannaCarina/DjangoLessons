@@ -198,3 +198,18 @@ To fix functionality of the now broken form we need to let Django take over:
 5. In the edit_item view in views.py: get a copy of the item (see there for code) and prepopulate
 6. Import get_object_or_404 at the top
 7. Copy the POST handler from add_item view into the update item view
+
+
+### Lesson 9 - Toggling and Deleting data
+
+<strong>Toggling</strong>
+
+1. In to_do_list.html copy the edit button and place above itself, change 'edit' to 'toggle'
+2. Add the path in urls.py (notice how the imports line is getting quite long - just import views and add views. to the start of each path)
+3. In views.py, add a new function (see views.py for code)
+
+<strong>Deleting</strong>
+
+1. In to_do_list.html copy the edit button and place above itself, change 'edit' to 'delete'
+2. Add the path in urls.py by copying the toggle path
+3. In views.py, add a new function (see views.py for code)
