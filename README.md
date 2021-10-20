@@ -213,3 +213,12 @@ To fix functionality of the now broken form we need to let Django take over:
 1. In to_do_list.html copy the edit button and place above itself, change 'edit' to 'delete'
 2. Add the path in urls.py by copying the toggle path
 3. In views.py, add a new function (see views.py for code)
+
+
+### Lesson 10 - Django Testing
+
+To run tests, in the CLI: python3 manage.py test
+Copy the tests.py file and create a test file for: models, forms and views (delete original test.py)
+
+<strong>See code in test_forms.py, test_models.py and test_views.py</strong>
+
