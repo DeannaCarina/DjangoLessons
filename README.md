@@ -150,3 +150,26 @@ should return something like this: "<QuerySet [<Item: Create Item class>, <Item:
 
 4. To make more user friendly, add the for loop syntax to iterate through the items list (see html for code)
 
+
+### Lesson 7 - Creating a new item
+
+Make a copy of the to_do_list.html file and rename to something appropriate (in this case - add_item.html)
+
+To have the new page accessible, need to add in 3 places:
+1. views.py as a function def
+2. urls.py as an import (update the 'from to_do.views' import)
+3. urls.py as a new path
+
+<strong>See add_item.html for code to create form and add item</strong>
+
+Just inside the opening form tag whenever we're posting information in Django.
+We need to add the CSRF or cross-site request forgery token {% csrf_token %}.
+This token is a randomly generated unique value which will be added
+to the form as a hidden input field when the forms submitted.
+And works to guarantee that the data we're posting is actually coming from our
+todo list app and not from another website.
+
+To be able to submit the form via a POST request, we need to add an if statement to the page function in views.py and add the redirect import at the top of the page
+
+
+
