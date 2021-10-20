@@ -172,4 +172,29 @@ todo list app and not from another website.
 To be able to submit the form via a POST request, we need to add an if statement to the page function in views.py and add the redirect import at the top of the page
 
 
+### Lesson 8 - Modifying data - Forms
 
+1. Create a new file in the to_do folder called "forms.py"
+2. from django import forms
+3. from .models import Item
+See code in forms.py 
+
+4. In views.py
+> from .forms import Item
+
+With the form imported we can now create an instance of it in the add_item view.
+Create a context which contains the empty form. And then return the context to the template.
+
+We can now delete the input fields from the form we previously created in add_item.html and render it as we would any other template (see that page for code)
+
+To fix functionality of the now broken form we need to let Django take over:
+1. In views.py within the add_item function if statement, add "form = ItemForm(request.POST)", delete the 'name', 'done' and 'Item.objects' variables.
+2. Add if statement: if form.is_valid(): form.save (see views.py for code)
+
+1. In the to_do list page, add an edit button to each item.
+2. In views.py: add an edit_item view (see there for code)
+3. Copy the add_item.html and rename/edit as appropriate
+4. In urls.py, add the path and import at the top
+5. In the edit_item view in views.py: get a copy of the item (see there for code) and prepopulate
+6. Import get_object_or_404 at the top
+7. Copy the POST handler from add_item view into the update item view
