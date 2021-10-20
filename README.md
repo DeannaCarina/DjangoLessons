@@ -222,3 +222,19 @@ Copy the tests.py file and create a test file for: models, forms and views (dele
 
 <strong>See code in test_forms.py, test_models.py and test_views.py</strong>
 
+
+### Lesson 11 - Coverage
+
+In CLI:
+> pip3 install coverage
+
+To run coverage, in CLI:
+> coverage run --source=to_do manage.py test
+
+To view the report, in CLI:
+> coverage report
+
+To create interactive HTML report, in CLI:
+> coverage html
+
+Run the server using python3 -m http.server
