@@ -304,8 +304,16 @@ If the push failes because of lack of static files, run the "heroku config:set D
 If the doployed site fails, run heroku logs --tail in the CLI
 2. Create a Procfile file in the repo at the same level as the requirements.txt (if one doesn't already exist)
 3. In the procfile type: web: gunicorn django_todo.wsgi:application
+4. In the CLI: git add ., git commit -m (message), git push heroku main
 
 <strong>Fix ALLOWED_HOSTS and run project</strong>
+
+In settings.py, in the ALLOWED_HOSTS section:
+1. In the CLI: heroku logs --tail
+2. Scroll up to just below where it states the app is 'Launching' and copy the https://{app-name}.herokuapp.com/
+3. Paste into the [] of the ALLOWED_HOSTS section
+4. Remove the 'https://' text and place the remaining text inside quotes.
+
 
 <strong>Connecting Heroku to GitHub</strong>
 
