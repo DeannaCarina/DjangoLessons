@@ -350,5 +350,8 @@ Local server now won't run because of a database problem... so lets fix that
 2. Google - 'Django secret key generator', generate a key and copy
 3. Go back into gitpod workspace settings and add a new variable 'SECRET_KEY' and paste the key into the value
 4. Restart the workspace
+5. Generate another secret key for Heroku and copy
+6. Go to the Heroku dashboard app settings and reveal config vars
+7. Check the local server still runs.
 
 
