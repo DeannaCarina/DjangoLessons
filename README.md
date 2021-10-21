@@ -1,6 +1,6 @@
 # Django Lessons
 
-### Lesson 1 - Getting set up
+## Lesson 1 - Getting set up
 1. Install Django using CLI
 > pip3 install django
 
@@ -24,7 +24,7 @@ To run locally:
 > python3 manage.py runserver
 
 
-### Lesson 2 - URLs
+## Lesson 2 - URLs
 
 Creating an app:
 > python3 manage.py startapp {app_name}
@@ -43,7 +43,7 @@ In urls.py:
 3. To test it's working, navigate to the locally hosted server, and add /hello to the end of the url
 
 
-### Lesson 3 - Templates
+## Lesson 3 - Templates
 
 1. In the app folder which we created in Lesson 2, create a new folder called 'templates'
 2. Inside of the 'templates' folder, create another folder called '{app_name}' from Lesson 2 (in this case 'to_do')
@@ -69,7 +69,7 @@ In settings.py:
 Test the locally hosted server to see if template has rendered.
 
 
-### Lesson 4 - Migrations and Admin
+## Lesson 4 - Migrations and Admin
 
 THREE KEY COMMANDS (text in [] is optional):
 1. python3 manage.py makemigrations [--dry-run]
@@ -82,7 +82,7 @@ To create a super user:
 1. Run the local server again and put /admin at the end of the URL (/admin as this is stipulated in the urls.py)
 2. Log in with credentials you just created
 
-### Lesson 5 - Models
+## Lesson 5 - Models
 
 1. Add a class to models.py (see models.py for code)
 
@@ -113,7 +113,7 @@ To create a new item:
 To update the Item name (see models.py for extra code within the class to override django.db settings)
 
 
-### Lesson 6 - Rendering Data
+## Lesson 6 - Rendering Data
 
 The next thing we need is the way to display the to our users.
 So we need to find a way to get those items from the database into a template.
@@ -136,8 +136,8 @@ It needs a key of items. And that value is going to be our items variable that w
 Add that 'context' variable as a third argument to the render function.
 This will ensure that we have access to it in our todo list .html template.
 
-#### <strong>Once we save this we've got everything we need to ensure complete communication.</strong>
-#### <strong>Between the users of our app on the front end. And our database on the back end.</strong>
+<strong>Once we save this we've got everything we need to ensure complete communication.</strong>
+<strong>Between the users of our app on the front end. And our database on the back end.</strong>
 
 To test:
 1. > python3 manage.py runserver
@@ -151,7 +151,7 @@ should return something like this: "<QuerySet [<Item: Create Item class>, <Item:
 4. To make more user friendly, add the for loop syntax to iterate through the items list (see html for code)
 
 
-### Lesson 7 - Creating a new item
+## Lesson 7 - Creating a new item
 
 Make a copy of the to_do_list.html file and rename to something appropriate (in this case - add_item.html)
 
@@ -172,7 +172,7 @@ todo list app and not from another website.
 To be able to submit the form via a POST request, we need to add an if statement to the page function in views.py and add the redirect import at the top of the page
 
 
-### Lesson 8 - Modifying data - Forms
+## Lesson 8 - Modifying data - Forms
 
 1. Create a new file in the to_do folder called "forms.py"
 2. from django import forms
@@ -200,7 +200,7 @@ To fix functionality of the now broken form we need to let Django take over:
 7. Copy the POST handler from add_item view into the update item view
 
 
-### Lesson 9 - Toggling and Deleting data
+## Lesson 9 - Toggling and Deleting data
 
 <strong>Toggling</strong>
 
@@ -215,7 +215,7 @@ To fix functionality of the now broken form we need to let Django take over:
 3. In views.py, add a new function (see views.py for code)
 
 
-### Lesson 10 - Django Testing
+## Lesson 10 - Django Testing
 
 To run tests, in the CLI: python3 manage.py test
 Copy the tests.py file and create a test file for: models, forms and views (delete original test.py)
@@ -223,7 +223,7 @@ Copy the tests.py file and create a test file for: models, forms and views (dele
 <strong>See code in test_forms.py, test_models.py and test_views.py</strong>
 
 
-### Lesson 11 - Coverage
+## Lesson 11 - Coverage
 
 In CLI:
 > pip3 install coverage
@@ -238,3 +238,71 @@ To create interactive HTML report, in CLI:
 > coverage html
 
 Run the server using python3 -m http.server
+
+
+## Lesson 12 - Deployment
+
+To log in to Heroku in the CLI:
+> heroku login -i
+
+To view a list of all possible Heroku commads:
+> heroku
+
+To find out how each command works:
+> heroku {command} help
+
+<strong>Installing project requirments</strong>
+
+> 1. pip3 install psycopg2-binary
+> 2. pip3 install gunicorn
+> 3. pip3 freeze --local > requirements.txt
+
+<strong>Creating a Heroku App</strong>
+
+(make sure logged into Heroku via the CLI)
+> 1. heroku apps:create {app_name} --region eu
+> 2. heroku apps (to test it was created successfuly)
+
+<strong>Creating a new database on Heroku</strong>
+
+Error fix: If you get the error below during the steps to deployment:
+> django.db.utils.OperationalError: FATAL: role "somerandomletters" does not exist
+
+Run the following command in the terminal to fix it: unset PGHOSTADDR
+
+1. Go to the GUI on the resources tab of the app on Heroku
+2. In add-ons, find Heroku postgres and click 'submit order form'
+3. Go to the settings tab and click 'reveal config vars'
+4. Go to the CLI in gitpod and type 'heroku addons' to check it has been added
+
+<strong>Connecting to our remote database</strong>
+
+> 1. pip3 install dj_database_url
+> 2. pip3 freeze --local > requirements.txt
+
+3. Get the URL of the remote database by typing in the CLI: heroku config
+4. In settings.py go to the DATABASES section and copy&paste underneath itself (comment out the original)
+5. Replace value of the 'default' key to: dj_database_url.parse('database url here')
+6. import dj_database_url at the top of the settings.py file
+7. In CLI: python3 manage.py migrate
+
+<strong>Pushing our changes to GitHub</strong>
+
+1. Create a .gitignore file in the repo at the same level as the requirements.txt (if one doesn't already exist)
+Add the following to the .gitignore file if they don't already exist:
+> 1. *sqlite3
+> 2. __pycache__/
+2. In the CLI: git add .
+3. In the CLI: git commit -m 'Prepare to deploy to heroku - Lesson 12'
+4. In the CLI: git push origin master
+
+
+<strong>Attempting a first deployment</strong>
+
+<strong>Fix ALLOWED_HOSTS and run project</strong>
+
+<strong>Connecting Heroku to GitHub</strong>
+
+<strong>The development environment</strong>
+
+<strong>The SECRET_KEY</strong>
