@@ -339,6 +339,9 @@ Local server now won't run because of a database problem... so lets fix that
 5. Go to variables and add a new variable
 6. Name it 'DEVELOPMENT' and value 'True'
 7. Restart the workspace.
+8. Server will now run, but application wont because of ALLOWED HOSTS variable
+9. Go to the ALLOWED_HOSTS section and copy and paste below.
+10. Create an if statement for DEVELOPMENT environment (see there for code)
 
 
 
