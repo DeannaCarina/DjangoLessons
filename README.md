@@ -299,6 +299,12 @@ Add the following to the .gitignore file if they don't already exist:
 
 <strong>Attempting a first deployment</strong>
 
+1. In the CLI: git push heroku main
+If the push failes because of lack of static files, run the "heroku config:set DISABLE_COLLECTSTATIC=1" command in the CLI
+If the doployed site fails, run heroku logs --tail in the CLI
+2. Create a Procfile file in the repo at the same level as the requirements.txt (if one doesn't already exist)
+3. In the procfile type: web: gunicorn django_todo.wsgi:application
+
 <strong>Fix ALLOWED_HOSTS and run project</strong>
 
 <strong>Connecting Heroku to GitHub</strong>
