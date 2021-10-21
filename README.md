@@ -328,8 +328,20 @@ In settings.py, in the ALLOWED_HOSTS section:
 8. To confirm things are updating, make a change in a template (e.g. update a title)
 
 
-
-
 <strong>The development environment</strong>
 
+Local server now won't run because of a database problem... so lets fix that
+
+1. In settings.py under the imports create a variable called 'development' - see settings.py for code
+2. Update degbug to the development variable
+3. Uncomment the databases section from before, and set to this if we are in dev mode.
+4. Set the development environment to true: Go to GitPod workspaces, then settings
+5. Go to variables and add a new variable
+6. Name it 'DEVELOPMENT' and value 'True'
+7. Restart the workspace.
+
+
+
 <strong>The SECRET_KEY</strong>
+
+
