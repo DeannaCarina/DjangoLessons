@@ -318,6 +318,18 @@ In settings.py, in the ALLOWED_HOSTS section:
 
 <strong>Connecting Heroku to GitHub</strong>
 
+1. Add 'import os' to the top of the settings.py file is not already there
+2. Go to the deploy tab in the Heroku Dashboard of the app we want to deploy
+3. Under deployment method, select the GitHub icon and search for the relevant repo name, then click connect
+4. Click enable automatic deploys
+5. In settings.py change settings of SECRET_KEY, ALLOWED_HOSTS and DATABASES - see there for code
+6. Go to the Heroku App settings tab and reveal config vars.
+7. Add a variable 'HEROKU_HOSTNAME' and add the value {app-name}.herokuapp.com
+8. To confirm things are updating, make a change in a template (e.g. update a title)
+
+
+
+
 <strong>The development environment</strong>
 
 <strong>The SECRET_KEY</strong>
