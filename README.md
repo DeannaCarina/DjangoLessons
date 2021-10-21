@@ -294,7 +294,7 @@ Add the following to the .gitignore file if they don't already exist:
 > 2. __pycache__/
 2. In the CLI: git add .
 3. In the CLI: git commit -m 'Prepare to deploy to heroku - Lesson 12'
-4. In the CLI: git push origin master
+4. In the CLI: git push origin main
 
 
 <strong>Attempting a first deployment</strong>
