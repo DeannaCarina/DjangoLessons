@@ -313,6 +313,7 @@ In settings.py, in the ALLOWED_HOSTS section:
 2. Scroll up to just below where it states the app is 'Launching' and copy the https://{app-name}.herokuapp.com/
 3. Paste into the [] of the ALLOWED_HOSTS section
 4. Remove the 'https://' text and place the remaining text inside quotes.
+5. Save, commit and push to Heroku again.
 
 
 <strong>Connecting Heroku to GitHub</strong>
