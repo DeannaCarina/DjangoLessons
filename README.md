@@ -344,7 +344,11 @@ Local server now won't run because of a database problem... so lets fix that
 10. Create an if statement for DEVELOPMENT environment (see there for code)
 
 
-
 <strong>The SECRET_KEY</strong>
+
+1. Remove the current secret key from settings.py and leave as an empty string
+2. Google - 'Django secret key generator', generate a key and copy
+3. Go back into gitpod workspace settings and add a new variable 'SECRET_KEY' and paste the key into the value
+4. Restart the workspace
 
 
